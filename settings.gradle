@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Meal_Search_Clean_Architecture"
 include ':app'
+include ':domain'
+include ':data'
