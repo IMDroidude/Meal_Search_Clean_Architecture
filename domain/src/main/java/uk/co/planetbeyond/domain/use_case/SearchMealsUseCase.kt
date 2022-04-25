@@ -11,9 +11,13 @@ class SearchMealsUseCase @Inject constructor(
     private val repository: Repository
 ) {
 
-    operator fun invoke(): Flow<Resource<List<Meal>>> = flow {
+    operator fun invoke(search:String): Flow<Resource<List<Meal>>> = flow {
         emit(Resource.Loading())
-        ///val data = repository.
-
+        try {
+            val data = repository.getSearchMealList(search)
+            emit(Resource.Success(data))
+        } catch (e: Exception) {
+            emit(Resource.Error(""))
+        }
     }
 }
