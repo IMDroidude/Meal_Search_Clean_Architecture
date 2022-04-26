@@ -9,7 +9,6 @@ import uk.co.planetbeyond.data.prefs.AppPrefsImpl
 import uk.co.planetbeyond.data.prefs.PrefStore
 import uk.co.planetbeyond.data.prefs.PrefStoreImpl
 import uk.co.planetbeyond.data.repository.RepositoryImpl
-import uk.co.planetbeyond.domain.repository.Repository
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -21,6 +20,6 @@ interface RepositoryModule {
     @Binds
     fun bindAppPrefs(appPrefsImpl: AppPrefsImpl): AppPrefs
 
-    @Binds
-    fun bindRepository(repositoryImpl: RepositoryImpl): Repository
+    /*@Binds
+    fun bindRepository(repositoryImpl: RepositoryImpl): Repository*/
 }

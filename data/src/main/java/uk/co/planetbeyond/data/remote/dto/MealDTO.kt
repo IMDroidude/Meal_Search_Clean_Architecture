@@ -1,7 +1,5 @@
 package uk.co.planetbeyond.data.remote.dto
 
-import uk.co.planetbeyond.domain.model.Meal
-import uk.co.planetbeyond.domain.model.MealDetails
 
 data class MealDTO(
     val dateModified: String?,
@@ -60,6 +58,7 @@ data class MealDTO(
 )
 
 
+/*
 fun MealDTO.toDomainMeal(): Meal {
     return Meal(
         id = this.idMeal,
@@ -123,3 +122,4 @@ fun MealDTO.toDomainMealDetails(): MealDetails {
 
 
 }
+*/
