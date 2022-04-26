@@ -6,11 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import uk.co.planetbeyond.meal_search_clean_architecture.R
 import uk.co.planetbeyond.meal_search_clean_architecture.databinding.FragmentMealSearchBinding
 
 @AndroidEntryPoint
@@ -87,13 +91,13 @@ class MealSearchFragment : Fragment() {
         }
 
 
-        /*searchAdapter.itemClickListener {
+        searchAdapter.itemClickListener {
+            val bundle = bundleOf("meal_id" to it.id)
             findNavController().navigate(
-                MealSearchFragmentDirections.actionMealSearchFragmentToMealDetailsFragment(
-                    it.id
-                )
+                R.id.mealDetailsFragment,bundle
+
             )
-        }*/
+        }
 
 
     }

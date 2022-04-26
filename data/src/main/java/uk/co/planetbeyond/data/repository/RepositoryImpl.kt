@@ -11,4 +11,8 @@ class RepositoryImpl @Inject constructor(
     suspend fun getSearchMealList(query: String): List<MealDTO>? {
         return apiService.getSearchMealList(query).meals
     }
+
+    suspend fun getSearchMealDetail(id: String): List<MealDTO>? {
+        return apiService.getMealDetails(id).meals
+    }
 }
