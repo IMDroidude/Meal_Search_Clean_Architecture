@@ -23,10 +23,10 @@ object NetworkModule {
     }
 
 
-    @Provides
+    /*@Provides
     fun provideMealSearchRepository(mealSearchAPI: ApiService): RepositoryImpl {
         return RepositoryImpl(mealSearchAPI)
-    }
+    }*/
 
 
     /*@Provides
