@@ -1,7 +1,9 @@
 package uk.co.planetbeyond.meal_search_clean_architecture.ui.search
 
+import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import uk.co.planetbeyond.domain.api.Resource
@@ -18,6 +20,11 @@ class SearchViewModel @Inject constructor(
     private val _mealSearchList = MutableStateFlow<MealSearchState>(MealSearchState())
     val mealSearchList: StateFlow<MealSearchState> = _mealSearchList
 
+    /*fun testLiveData() = liveData<Boolean> {
+        emit(true)
+        delay(2000)
+        emit(false)
+    }*/
     fun getSearchMeals(string: String) {
         searchMealsUseCase(string).onEach {
             when(it){

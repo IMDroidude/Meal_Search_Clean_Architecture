@@ -28,10 +28,6 @@ class MealSearchFragment : Fragment() {
     val binding: FragmentMealSearchBinding
         get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +39,11 @@ class MealSearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        /*viewModel.testLiveData().observe(viewLifecycleOwner){
+            if(it){
+
+            }
+        }*/
         binding.mealSearchRecycler.apply {
             adapter = searchAdapter
         }

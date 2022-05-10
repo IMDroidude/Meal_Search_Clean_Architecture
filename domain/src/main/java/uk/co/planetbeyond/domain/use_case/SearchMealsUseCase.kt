@@ -2,6 +2,7 @@ package uk.co.planetbeyond.domain.use_case
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import uk.co.planetbeyond.domain.api.Resource
 import uk.co.planetbeyond.domain.model.Meal
 import uk.co.planetbeyond.domain.repository.Repository
@@ -21,4 +22,6 @@ class SearchMealsUseCase @Inject constructor(
             emit(Resource.Error(""))
         }
     }
+
+
 }

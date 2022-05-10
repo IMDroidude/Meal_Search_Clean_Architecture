@@ -56,7 +56,6 @@ dependencies {
     //hilt
     implementation 'com.google.dagger:hilt-android:2.41'
     kapt 'com.google.dagger:hilt-compiler:2.41'
-    ////implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     ///implementation project(path: ':domain')
     implementation project(path: ':data')
