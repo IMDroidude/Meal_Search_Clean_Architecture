@@ -22,14 +22,11 @@ class MealSearchFragment : Fragment() {
 
     private val searchAdapter = MealSearchAdapter()
 
-
     private val viewModel: SearchViewModel by viewModels()
-
 
     private var _binding: FragmentMealSearchBinding? = null
     val binding: FragmentMealSearchBinding
         get() = _binding!!
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +43,9 @@ class MealSearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
         binding.mealSearchRecycler.apply {
             adapter = searchAdapter
         }
-
 
         binding.mealSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String?): Boolean {
@@ -90,7 +85,6 @@ class MealSearchFragment : Fragment() {
             }
         }
 
-
         searchAdapter.itemClickListener {
             val bundle = bundleOf("meal_id" to it.id)
             findNavController().navigate(
@@ -98,8 +92,5 @@ class MealSearchFragment : Fragment() {
 
             )
         }
-
-
     }
-
 }

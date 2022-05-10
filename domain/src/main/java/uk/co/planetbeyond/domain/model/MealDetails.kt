@@ -1,7 +1,5 @@
 package uk.co.planetbeyond.domain.model
 
-import uk.co.planetbeyond.data.remote.dto.MealDTO
-
 data class MealDetails(
     val name: String,
     val image: String,
@@ -53,6 +51,7 @@ data class MealDetails(
 }
 
 
+/*
 fun MealDTO.toDomainMealDetails(): MealDetails {
     return MealDetails(
         name = this.strMeal ?: "",
@@ -104,6 +103,4 @@ fun MealDTO.toDomainMealDetails(): MealDetails {
         measure20 = this.strMeasure20 ?: "",
 
         )
-
-
-}
+}*/
