@@ -1,7 +1,6 @@
 package uk.co.planetbeyond.domain.repository
 
 import uk.co.planetbeyond.domain.model.Meal
-import uk.co.planetbeyond.domain.model.MealDetails
 
 interface Repository {
 

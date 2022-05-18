@@ -8,8 +8,6 @@ import uk.co.planetbeyond.meal_search_clean_architecture.databinding.ViewHolderS
 
 class MealSearchAdapter : RecyclerView.Adapter<MealSearchAdapter.MyViewHolder>() {
 
-
-
     private var listener :((Meal)->Unit)?=null
 
     var list = mutableListOf<Meal>()
