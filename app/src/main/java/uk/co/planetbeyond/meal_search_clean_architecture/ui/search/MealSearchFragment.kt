@@ -15,27 +15,28 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import uk.co.planetbeyond.meal_search_clean_architecture.R
+import uk.co.planetbeyond.meal_search_clean_architecture.base.AppFragment
 import uk.co.planetbeyond.meal_search_clean_architecture.databinding.FragmentMealSearchBinding
 
 @AndroidEntryPoint
-class MealSearchFragment : Fragment() {
+class MealSearchFragment : AppFragment<FragmentMealSearchBinding>(FragmentMealSearchBinding::inflate) {
 
     private val searchAdapter = MealSearchAdapter()
 
     private val viewModel: SearchViewModel by viewModels()
 
-    private var _binding: FragmentMealSearchBinding? = null
+    /*private var _binding: FragmentMealSearchBinding? = null
     val binding: FragmentMealSearchBinding
-        get() = _binding!!
+        get() = _binding!!*/
 
 
-    override fun onCreateView(
+    /*override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMealSearchBinding.inflate(inflater, container, false)
         return _binding?.root
-    }
+    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
