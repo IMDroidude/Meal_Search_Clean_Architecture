@@ -1,13 +1,10 @@
 package uk.co.planetbeyond.meal_search_clean_architecture.ui.search
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.Navigation.findNavController
@@ -22,29 +19,10 @@ import uk.co.planetbeyond.meal_search_clean_architecture.databinding.FragmentMea
 class MealSearchFragment : AppFragment<FragmentMealSearchBinding>(FragmentMealSearchBinding::inflate) {
 
     private val searchAdapter = MealSearchAdapter()
-
     private val viewModel: SearchViewModel by viewModels()
-
-    /*private var _binding: FragmentMealSearchBinding? = null
-    val binding: FragmentMealSearchBinding
-        get() = _binding!!*/
-
-
-    /*override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentMealSearchBinding.inflate(inflater, container, false)
-        return _binding?.root
-    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        /*viewModel.testLiveData().observe(viewLifecycleOwner){
-            if(it){
-
-            }
-        }*/
         binding.mealSearchRecycler.apply {
             adapter = searchAdapter
         }
@@ -96,3 +74,17 @@ class MealSearchFragment : AppFragment<FragmentMealSearchBinding>(FragmentMealSe
         }
     }
 }
+
+
+/*private var _binding: FragmentMealSearchBinding? = null
+    val binding: FragmentMealSearchBinding
+        get() = _binding!!*/
+
+
+/*override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+): View? {
+    _binding = FragmentMealSearchBinding.inflate(inflater, container, false)
+    return _binding?.root
+}*/
