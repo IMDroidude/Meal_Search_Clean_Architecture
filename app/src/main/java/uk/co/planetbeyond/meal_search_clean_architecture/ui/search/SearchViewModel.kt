@@ -26,7 +26,7 @@ class SearchViewModel @Inject constructor(
         emit(false)
     }*/
     fun getSearchMeals(string: String) {
-        searchMealsUseCase(string).onEach {
+        searchMealsUseCase(string).onStart {  }.catch {  }.onEach {
             when(it){
                 is Resource.Error -> {
                     _mealSearchList.value = MealSearchState(error = it.message ?: "")

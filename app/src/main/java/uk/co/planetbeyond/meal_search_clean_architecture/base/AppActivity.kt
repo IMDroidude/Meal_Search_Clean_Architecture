@@ -11,7 +11,7 @@ import androidx.viewbinding.ViewBinding
 abstract class AppActivity<VB : ViewBinding>(val bindingFactory: (LayoutInflater) -> VB) :
     AppCompatActivity() {
     ///private lateinit var binding: VB
-    private val binding: VB by lazy { bindingFactory(layoutInflater) }
+    val binding: VB by lazy { bindingFactory(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
