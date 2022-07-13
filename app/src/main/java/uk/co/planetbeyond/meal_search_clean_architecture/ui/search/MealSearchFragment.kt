@@ -7,10 +7,12 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import uk.co.planetbeyond.domain.api.State
 import uk.co.planetbeyond.meal_search_clean_architecture.R
 import uk.co.planetbeyond.meal_search_clean_architecture.base.AppFragment
 import uk.co.planetbeyond.meal_search_clean_architecture.databinding.FragmentMealSearchBinding
@@ -40,7 +42,32 @@ class MealSearchFragment : AppFragment<FragmentMealSearchBinding>(FragmentMealSe
             }
         })
 
-        lifecycle.coroutineScope.launchWhenCreated {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.meals.collect{
+                when(it){
+                    is State.Error -> {
+                        binding.nothingFound.visibility = View.GONE
+                        binding.progressMealSearch.visibility = View.GONE
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    }
+                    is State.Loading -> {
+                        binding.nothingFound.visibility = View.GONE
+                        binding.progressMealSearch.visibility = View.VISIBLE
+                    }
+                    is State.Success -> {
+                        if (it.data.isEmpty()) {
+                            binding.nothingFound.visibility = View.VISIBLE
+                        }
+                        binding.progressMealSearch.visibility = View.GONE
+                        searchAdapter.setContentList(it.data.toMutableList())
+                    }
+                    is State.NoAction -> {
+
+                    }
+                }
+            }
+        }
+        /*lifecycle.coroutineScope.launchWhenCreated {
             viewModel.mealSearchList.collect {
                 if (it.isLoading) {
                     binding.nothingFound.visibility = View.GONE
@@ -63,7 +90,7 @@ class MealSearchFragment : AppFragment<FragmentMealSearchBinding>(FragmentMealSe
 
 
             }
-        }
+        }*/
 
         searchAdapter.itemClickListener {
             val bundle = bundleOf("meal_id" to it.id)

@@ -12,13 +12,14 @@ class GetMealDetail @Inject constructor(private val repository: Repository) {
     operator fun invoke(id: String): Flow<Resource<List<MealDetails>>> = flow {
         try {
 
-            emit(Resource.Loading())
+
+            ///emit(Resource.Loading())
             /*val data = repository.getSearchMealDetail(id)
             if(!data.isNullOrEmpty()){
                 emit(Resource.Success(data))
             }*/
         } catch (e: Exception) {
-            emit(Resource.Error(""))
+           /// emit(Resource.Error(""))
         }
     }
 }

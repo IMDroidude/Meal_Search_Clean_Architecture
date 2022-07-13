@@ -24,10 +24,10 @@ class MealDetailsViewModel @Inject constructor(private val mealDetailsUseCase: G
     fun getMealDetails(id: String) {
         mealDetailsUseCase(id).onEach {
             when (it) {
-                is Resource.Loading -> {
+                /*is Resource.Loading -> {
                     _mealDetails.value = MealDetailsState(isLoading = true)
-                }
-                is Resource.Error -> {
+                }*/
+                is Resource.Failed -> {
                     _mealDetails.value = MealDetailsState(error = it.message ?: "")
                 }
                 is Resource.Success -> {
